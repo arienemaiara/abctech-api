@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo "Pre build phase"
+  build:
+    commands:
+      - echo "Building"
+      - mvn clean compile package
+
+  post_build:
+    commands:
+      - echo "Post building"
+      - mv target/*.war ./ROOT.war
+
+  artifacts:
+    files:
+      - ROOT.war
