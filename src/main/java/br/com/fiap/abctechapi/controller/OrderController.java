@@ -18,12 +18,12 @@ public class OrderController {
     private final OrderApplication orderApplication;
 
     @Autowired
-    public OrderController (OrderApplication orderApplication){
+    public OrderController (OrderApplication orderApplication) {
         this.orderApplication = orderApplication;
     }
 
     @PostMapping
-    public ResponseEntity<String> create(@Valid @RequestBody OrderDto orderDto) {
+    public ResponseEntity<String> create(@Valid @RequestBody OrderDto orderDto) throws Exception {
         this.orderApplication.createOrder(orderDto);
         return ResponseEntity.ok().build();
     }
